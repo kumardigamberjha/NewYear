@@ -150,3 +150,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # settings.py
 
 # Static files (CSS, JavaScript, images)
+
+LOGIN_URL = '/login/'

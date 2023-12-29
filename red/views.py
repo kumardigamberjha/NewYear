@@ -6,14 +6,23 @@ from django.views.decorators.csrf import csrf_exempt
 from PIL import Image
 from io import BytesIO
 
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 from django.http import JsonResponse
 # Create your views here.
 import base64
 import requests
+from django.contrib.auth.decorators import login_required
+
 
 from django.core.files.base import ContentFile
 
+
+
 @csrf_exempt
+@login_required
 def Index(request):
     form = FormForm()
     inv = FormModel.objects.all().order_by('invite_date')
@@ -39,7 +48,7 @@ def Index(request):
         # Create a ContentFile from binary data
         img_file = ContentFile(binary_data, name='decoded_image.png')
 
-        s = FormModel(name=name, phone=phone, adult=adult, child=child, kid=kid)
+        s = FormModel(name=name, phone=phone, adult=adult, child=child, kid=kid, invite_by=request.user)
         s.img = img_file
         s.save()
         print("Form Saved")
@@ -57,7 +66,7 @@ def Index(request):
             We extend a warm welcome and present your exclusive access pass. To ensure a seamless experience, please follow these instructions:
 
             To Check the current status of the pass:
-            
+
             https://redcarpet.codingindia.co.in/CheckQRCode/{phone}/ 
 
             Pass Deactivation Instructions:
@@ -91,6 +100,7 @@ def Index(request):
     return render(request, 'redcar/index.html', context)
 
 
+
 @csrf_exempt
 def handle_qr_scan(request, mobile):
     print("Mobile: ", mobile)
@@ -99,6 +109,7 @@ def handle_qr_scan(request, mobile):
     data.is_active = False
     data.save()
     return render(request, "redcar/deact.html")
+
 
 
 @csrf_exempt
@@ -115,3 +126,29 @@ def Check_qr_scan(request, mobile):
     context = {'cardis': cardis}
     return render(request, "redcar/deact.html")
    
+
+
+def CheckInvitations(request):
+    data = FormModel.objects.all()
+    context = {'data': data}
+    return render(request, 'redcar/record.html', context)
+
+
+def CheckOut(request):
+    data = FormModel.objects.filter(is_active=False)
+    context = {'data': data}
+    return render(request, 'redcar/checkout.html', context)
+
+
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')  # Redirect to home page or any desired page
+        else:
+            return render(request, 'redcar/login.html', {'error_message': 'Invalid credentials'})
+    return render(request, 'redcar/login.html')

@@ -52,6 +52,12 @@
             <br />
             <!-- <span id="datetime" class="mx-5"></span> -->
           </a>
+          {% if user.is_superuser %}
+          <div class="containers">
+            <a href="{% url 'checkinvite' %}" style="color: black; text-decoration: none; margin-right: 15px;">All Invitations</a>
+            <a href="{% url 'checkout' %}" style="color: black; text-decoration: none;">checkouts</a>
+          </div>
+          {% endif %}
         </div>
       </nav>
       <div class="container text-center mx-auto">

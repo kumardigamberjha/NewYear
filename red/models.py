@@ -14,6 +14,7 @@ class FormModel(models.Model):
     # qrcode = models.CharField(max_length=300)
     invite_date = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
+    invite_by = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
