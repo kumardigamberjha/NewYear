@@ -56,6 +56,9 @@ def Index(request):
 
             We extend a warm welcome and present your exclusive access pass. To ensure a seamless experience, please follow these instructions:
 
+            To Check the current status of the pass:
+            https://redcarpet.codingindia.co.in/CheckQRCode/{phone}/ 
+
             Pass Deactivation Instructions:
 
             Upon entry, your access pass will be activated. To deactivate the pass after entry, please use the following deactivation link:
