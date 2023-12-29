@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* font-family: 'Dancing Script', cursive; */
+    overflow-x: hidden;
+}
+
+.happy{
+    font-family: 'Carattere', cursive;
+    /* background-color: rgba(0, 0, 0, 0.359); */
+    /* color: rgb(0, 0, 0); */
+    font-size: 4em;
+    color: #000000;
+  
+}
+.button{
+    background-color: black;
+    color: white;
+    padding: 10px 20px 10px;
+}
