@@ -24,10 +24,12 @@ def Index(request):
         phone = request.POST.get('phone')
         adult = request.POST.get('adult')
         child = request.POST.get('child')
+        kid = request.POST.get('kid')
+
         data_url = request.POST.get('img')
         # img_file = request.FILES.get('img')
 
-        print("Name: ", name, phone, adult, child)
+        print("Name: ", name, phone, adult, child, kid)
 
         encoded_data = data_url.split(',')[1]
 
@@ -37,7 +39,7 @@ def Index(request):
         # Create a ContentFile from binary data
         img_file = ContentFile(binary_data, name='decoded_image.png')
 
-        s = FormModel(name=name, phone=phone, adult=adult, child=child)
+        s = FormModel(name=name, phone=phone, adult=adult, child=child, kid=kid)
         s.img = img_file
         s.save()
         print("Form Saved")

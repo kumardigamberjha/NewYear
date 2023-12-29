@@ -194,14 +194,7 @@
             <div id="qrcode" class="container mt-3 text-center mx-auto"></div>
           </div>
           <div class="modal-footer">
-            <!-- <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-              onclick="submitFormAndReset()"
-            >
-              Close
-            </button> -->
+           
             <button
               type="button"
               class="btn btn-primary"
@@ -209,7 +202,6 @@
             >
               Send Invitation
             </button>
-            <!-- <a href="http://web.cloudwhatsapp.com/wapp/api/send?apikey=427870336a6d45359a394f7f89cf5cba&mobile=7814574759 &msg=testmsg">Send message</a> -->
           </div>
         </div>
       </div>
@@ -231,8 +223,10 @@
         var mobileNumber = document.getElementById("phone").value;
         var adultCount = document.getElementById("adult").value;
         var childrenCount = document.getElementById("child").value;
+        var kid = document.getElementById("kid").value;
+
       // Check if any required field is empty
-      if (name === "" || mobileNumber === "" || adultCount === "" || childrenCount === "") {
+      if (name === "" || mobileNumber === "" || adultCount === "" || childrenCount === "" || kid === "") {
         alert("Please fill in all the required fields.");
         return;
       }
@@ -246,6 +240,8 @@
           adultCount +
           "\nChildren: " +
           childrenCount + 
+          "\nKids: " +
+          kid + 
           "\nCheck Activation: <a href='https://redcarpet.codingindia.co.in/HandleQRCode/" + mobileNumber + "/'>Activation Link</a>" +
           "\nTo Deactivate Click on the link: <a href='https://redcarpet.codingindia.co.in/HandleQRCode/" + mobileNumber + "/'>Deactivation Link</a>";
     
@@ -291,7 +287,7 @@
           let child = $('#child').val()
           let kid = $('#kid').val()
 
-          console.log("Data: ", name, phone)
+          console.log("Data: ", name, phone, kid)
 
           $.ajax({
                 type: 'POST',
