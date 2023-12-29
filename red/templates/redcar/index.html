@@ -293,6 +293,8 @@
                 data: {'name': name, 'phone': phone, 'adult': adult, 'child': child, 'kid': kid, 'img': imgData},
                 success: function(response) {
                     console.log('Form submitted successfully:', response);
+                    resetForm();
+                    window.location.href = "/"
                 },
                 error: function(error) {
                     console.error('Error submitting form:', error);
