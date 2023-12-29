@@ -134,7 +134,7 @@ def Check_qr_scan(request, mobile):
     # data.is_active = False
     # data.save()
     context = {'cardis': cardis, 'data': data, 'form':form}
-    return render(request, "redcar/deact.html", context)
+    return render(request, "redcar/status.html", context)
    
 
 
