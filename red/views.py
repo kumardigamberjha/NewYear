@@ -48,7 +48,7 @@ def Index(request):
         mobile_number = '7814574759'  # Replace XXXX with the actual number
 
         url = "http://web.cloudwhatsapp.com/wapp/api/send?apikey={}&mobile={}&msg={}&img1={}".format(
-            api_key, mobile_number, "Image1", f"https://redcarpet.codingindia.co.in/media/{s.img}"
+            api_key, phone, "Image1", f"https://redcarpet.codingindia.co.in/media/{s.img}"
         )
 
         try:
@@ -74,14 +74,4 @@ def handle_qr_scan(request, mobile):
     data.is_active = False
     data.save()
     return render(request, "redcar/deact.html")
-    if request.method == 'POST':
-        pass
-        # code_id = request.POST.get('code_id')  # Assuming the identifier is sent in the request
-        # try:
-        #     qr_code = FormModel.objects.get(code_id=code_id)
-        #     qr_code.scan_count += 1
-        #     qr_code.save()
-        #     return JsonResponse({'success': True})
-        # except FormModel.DoesNotExist:
-        #     return JsonResponse({'error': 'QR code not found'}, status=404)
-    return JsonResponse({'error': 'Invalid request'}, status=400)
+   
