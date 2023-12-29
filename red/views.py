@@ -50,7 +50,26 @@ def Index(request):
         mobile_number = '7814574759'  # Replace XXXX with the actual number
 
         url = "http://web.cloudwhatsapp.com/wapp/api/send?apikey={}&mobile={}&msg={}&img1={}".format(
-            api_key, phone, f"Deactivation Link: https://redcarpet.codingindia.co.in/HandleQRCode/{phone}/", f"https://redcarpet.codingindia.co.in/media/{s.img}"
+            api_key, phone, f'''Welcome to RedCarpet!
+
+            Dear Guest,
+
+            We extend a warm welcome and present your exclusive access pass. To ensure a seamless experience, please follow these instructions:
+
+            Pass Deactivation Instructions:
+
+            Upon entry, your access pass will be activated. To deactivate the pass after entry, please use the following deactivation link:
+
+            Deactivation Link
+
+            Important Note:
+            Please refrain from clicking on the deactivation link before entering the venue to avoid premature deactivation of your pass.
+
+            Thank you for choosing RedCarpet. We look forward to hosting you and hope you enjoy your time with us!
+
+            Warm regards,
+
+            {request.user}''', f"https://redcarpet.codingindia.co.in/media/{s.img}"
         )
 
         try:
