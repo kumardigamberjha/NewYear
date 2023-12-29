@@ -60,7 +60,7 @@ def Index(request):
 
             Upon entry, your access pass will be activated. To deactivate the pass after entry, please use the following deactivation link:
 
-            Deactivation Link
+            https://redcarpet.codingindia.co.in/HandleQRCode/{phone}/ 
 
             Important Note:
             Please refrain from clicking on the deactivation link before entering the venue to avoid premature deactivation of your pass.
