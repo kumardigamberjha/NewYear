@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/media/digamber/9A8A313E8A311869/Digamber Om Projects/NewYaer/redcar/venv"
+setenv VIRTUAL_ENV "/media/digamber/CA5E86D65E86BB29/NewYear/venv"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"

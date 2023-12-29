@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/media/digamber/9A8A313E8A311869/Digamber Om Projects/NewYaer/redcar/venv"
+set -gx VIRTUAL_ENV "/media/digamber/CA5E86D65E86BB29/NewYear/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

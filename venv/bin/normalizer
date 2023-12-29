@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/media/digamber/9A8A313E8A311869/Digamber Om Projects/NewYaer/redcar/venv/bin/python3" "$0" "$@"
-' '''
+#!/media/digamber/CA5E86D65E86BB29/NewYear/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
