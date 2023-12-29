@@ -15,7 +15,7 @@ from django.http import JsonResponse
 import base64
 import requests
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
 
 from django.core.files.base import ContentFile
 
@@ -117,14 +117,24 @@ def Check_qr_scan(request, mobile):
     print("Mobile: ", mobile)
 
     data = FormModel.objects.get(phone=mobile)
+    form = FormForm()
+    if request.method == 'POST':
+        form = FormForm(request.POST, request.FILES, instance=data)
+
+        if form.is_valid():
+            form.save()
+            # print("Saved")
+            return redirect('/')
+        else:
+            messages.success(request, form.errors)
     if data.is_active:
         cardis = "Active"
     else:
         cardis = "Not Active"
     # data.is_active = False
     # data.save()
-    context = {'cardis': cardis}
-    return render(request, "redcar/deact.html")
+    context = {'cardis': cardis, 'data': data, 'form':form}
+    return render(request, "redcar/deact.html", context)
    
 
 
