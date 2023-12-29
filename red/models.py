@@ -8,6 +8,8 @@ class FormModel(models.Model):
     phone = models.CharField(max_length=15, unique=True)
     adult = models.IntegerField()
     child = models.IntegerField()
+    kid = models.IntegerField()
+
     img = models.FileField(blank=True, null=True)
     # qrcode = models.CharField(max_length=300)
     invite_date = models.DateTimeField(auto_now_add=True)

@@ -74,4 +74,19 @@ def handle_qr_scan(request, mobile):
     data.is_active = False
     data.save()
     return render(request, "redcar/deact.html")
+
+
+@csrf_exempt
+def Check_qr_scan(request, mobile):
+    print("Mobile: ", mobile)
+
+    data = FormModel.objects.get(phone=mobile)
+    if data.is_active:
+        cardis = "Active"
+    else:
+        cardis = "Not Active"
+    # data.is_active = False
+    # data.save()
+    context = {'cardis': cardis}
+    return render(request, "redcar/deact.html")
    

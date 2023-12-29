@@ -92,7 +92,7 @@
             </div>
             <div class="mb-3">
               <label for="phone number" class="form-label"
-                >Adult (above 12)</label
+                >Adult (18 years & above)</label
               >
               <input
                 type="number"
@@ -105,7 +105,7 @@
             </div>
             <div class="mb-3">
               <label for="phone number" class="form-label"
-                >Children (below 12)</label
+                >Teenage (10 to 18 years)</label
               >
               <input
                 type="number"
@@ -113,6 +113,19 @@
                 id="child"
                 min="0"
                 name="child"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="phone number" class="form-label"
+                >Kids (Below 10 years)</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="kid"
+                min="0"
+                name="kid"
                 required
               />
             </div>
@@ -202,28 +215,7 @@
       </div>
     </div>
 
-    <!-- <h3>All Invitations</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for i in inv %}
-          <tr>
-            <th scope="row">1</th>
-            <td>{{i.name}}</td>
-            <td>{{i.adult}}</td>
-            <td>{{i.img}}</td>
-            <td><a href="http://web.cloudwhatsapp.com/wapp/api/send?apikey=427870336a6d45359a394f7f89cf5cba&mobile=7814574759 &msg=https://redcarpet.codingindia.co.in/media/{{i.img}} Pass &img1=https://redcarpet.codingindia.co.in/media/{{i.img}}">Send</a></td>
-          </tr>
-         {% endfor %}
-        </tbody>
-      </table> -->
+   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script
@@ -254,7 +246,8 @@
           adultCount +
           "\nChildren: " +
           childrenCount + 
-          "\nTo Deactivate Click on the link: " + "https://redcarpet.codingindia.co.in/HandleQRCode/"+mobileNumber+"/";
+          "\nCheck Activation: <a href='https://redcarpet.codingindia.co.in/HandleQRCode/" + mobileNumber + "/'>Activation Link</a>" +
+          "\nTo Deactivate Click on the link: <a href='https://redcarpet.codingindia.co.in/HandleQRCode/" + mobileNumber + "/'>Deactivation Link</a>";
     
         // Generate QR code
         var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -296,14 +289,15 @@
           let phone = $('#phone').val()
           let adult = $('#adult').val()
           let child = $('#child').val()
+          let kid = $('#kid').val()
+
           console.log("Data: ", name, phone)
 
           $.ajax({
                 type: 'POST',
                 url: '{% url "index" %}', // URL to submit the form data
-                data: {'name': name, 'phone': phone, 'adult': adult, 'child': child, 'img': imgData},
+                data: {'name': name, 'phone': phone, 'adult': adult, 'child': child, 'kid': kid, 'img': imgData},
                 success: function(response) {
-                  
                     console.log('Form submitted successfully:', response);
                 },
                 error: function(error) {
