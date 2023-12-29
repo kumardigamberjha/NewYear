@@ -181,20 +181,20 @@
             <div id="qrcode" class="container mt-3 text-center mx-auto"></div>
           </div>
           <div class="modal-footer">
-            <button
+            <!-- <button
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
               onclick="submitFormAndReset()"
             >
               Close
-            </button>
+            </button> -->
             <button
               type="button"
               class="btn btn-primary"
               onclick="downloadModalImage()"
             >
-              Download Image
+              Send Invitation
             </button>
             <!-- <a href="http://web.cloudwhatsapp.com/wapp/api/send?apikey=427870336a6d45359a394f7f89cf5cba&mobile=7814574759 &msg=testmsg">Send message</a> -->
           </div>
@@ -202,7 +202,7 @@
       </div>
     </div>
 
-    <h3>All Invitations</h3>
+    <!-- <h3>All Invitations</h3>
       <table class="table">
         <thead>
           <tr>
@@ -223,7 +223,7 @@
           </tr>
          {% endfor %}
         </tbody>
-      </table>
+      </table> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script
@@ -253,7 +253,8 @@
           "\nAdults: " +
           adultCount +
           "\nChildren: " +
-          childrenCount;
+          childrenCount + 
+          "Deactivate: " + "http://127.0.0.1:8000/HandleQRCode/"+mobileNumber+"/";
     
         // Generate QR code
         var qrcode = new QRCode(document.getElementById("qrcode"), {
