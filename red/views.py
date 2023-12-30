@@ -67,7 +67,7 @@ def Index(request):
 
             To Check the current status of the pass:
 
-            https://redcarpet.codingindia.co.in/CheckQRCode/{phone}/ 
+            https://redcarpet.codingindia.co.in/CheckQRCode/{phone}/
 
             Pass Deactivation Instructions:
 
