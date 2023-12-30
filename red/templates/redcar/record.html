@@ -10,7 +10,7 @@
     <div class="container">
         <div class="conatiner" style="display: flex; justify-content: space-around;">
             <h2 class="text-center mt-3">All Invitations</h2>
-            <a href="{% url 'del_all_qr_code' %}">Del All Record</a>
+            <a href="{% url 'del_all_qr_code' %}" style="margin: 25px; text-decoration: none; color: red; border: 1px solid red;" onclick="return confirm('Are you sure you want to delete all records?')">Del All Record</a>
         </div>
         
 
