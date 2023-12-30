@@ -59,7 +59,7 @@ def Index(request):
         mobile_number = '7814574759'  # Replace XXXX with the actual number
 
         url = "http://web.cloudwhatsapp.com/wapp/api/send?apikey={}&mobile={}&msg={}&img1={}".format(
-            api_key, phone, "", f"https://redcarpet.codingindia.co.in/media/{s.img}"
+            api_key, phone, "Your Entry Pass", f"https://redcarpet.codingindia.co.in/media/{s.img}"
         )
 
         try:
