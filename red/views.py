@@ -93,6 +93,12 @@ def handle_qr_scan(request, mobile):
     return render(request, "redcar/deact.html", context)
 
 
+def Del_All_QR_SCAN(request):
+    data = FormModel.objects.all()
+    for i in data:
+        i.delete()
+    return redirect("checkinvite")
+
 
 @csrf_exempt
 def Check_qr_scan(request, mobile):

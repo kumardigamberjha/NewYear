@@ -8,7 +8,11 @@
   </head>
   <body>
     <div class="container">
-        <h2 class="text-center mt-3">All Invitations</h2>
+        <div class="conatiner" style="display: flex; justify-content: space-around;">
+            <h2 class="text-center mt-3">All Invitations</h2>
+            <a href="{% url 'del_all_qr_code' %}">Del All Record</a>
+        </div>
+        
 
         <table class="table mt-5">
             <thead>
@@ -20,6 +24,8 @@
                 <th scope="col">Invite By</th>
 
                 <th scope="col">Active</th>
+                <th scope="col">Deactivate</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -35,6 +41,7 @@
                 {% else %}
                 <td>Not Active</td>
                 {% endif %}
+                <td><a href="https://redcarpet.codingindia.co.in/HandleQRCode/{{i.phone}}/">Deactivate</a></td>
               </tr>
                 {% endfor %}
             </tbody>
