@@ -30,8 +30,11 @@
                 <td>{{i.phone}}</td>
                 <td>{{i.invite_date}}</td>
                 <td>{{i.invite_by}}</td>
-
-                <td>{{i.is_active}}</td>
+                {% if i.is_active %}
+                <td>Active</td>
+                {% else %}
+                <td>Not Active</td>
+                {% endif %}
               </tr>
                 {% endfor %}
             </tbody>
