@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-$s&_w!t)c@%b%#9(dce54y1n4)^6zdt^4sd34*vk@y1rx4(t_j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.29.121']
 
 
 # Application definition
@@ -86,6 +86,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'redcar.wsgi.application'
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
