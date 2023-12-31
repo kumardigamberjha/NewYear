@@ -95,6 +95,23 @@ def handle_qr_scan(request, mobile):
     return render(request, "redcar/deact.html", context)
 
 
+@csrf_exempt
+def Activate_QR_scan(request, mobile):
+    print("Mobile: ", mobile)
+    try:
+        data = FormModel.objects.get(phone=mobile)
+        if not data.is_active:
+            data.is_active = True
+            data.save()
+            some = "Activated Successfully"
+        else:
+            some = "Already Activated"
+    except:
+        some = "This Card does not Exist"
+    context = {"some":some}
+    return render(request, "redcar/deact.html", context)
+
+
 # def Del_All_QR_SCAN(request):
 #     data = FormModel.objects.all()
 #     for i in data:
