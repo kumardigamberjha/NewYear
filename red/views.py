@@ -81,14 +81,16 @@ def Index(request):
 @csrf_exempt
 def handle_qr_scan(request, mobile):
     print("Mobile: ", mobile)
-
-    data = FormModel.objects.get(phone=mobile)
-    if data.is_active:
-        data.is_active = False
-        data.save()
-        some = "Deactivated Successfully"
-    else:
-        some = "Already Entered (Deactivated)"
+    try:
+        data = FormModel.objects.get(phone=mobile)
+        if data.is_active:
+            data.is_active = False
+            data.save()
+            some = "Deactivated Successfully"
+        else:
+            some = "Already Entered (Deactivated)"
+    except:
+        some = "This Card is not Active"
     context = {"some":some}
     return render(request, "redcar/deact.html", context)
 
