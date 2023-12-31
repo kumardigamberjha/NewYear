@@ -90,7 +90,7 @@ def handle_qr_scan(request, mobile):
         else:
             some = "Already Entered (Deactivated)"
     except:
-        some = "This Card is not Active"
+        some = "This Card does not Exist"
     context = {"some":some}
     return render(request, "redcar/deact.html", context)
 
