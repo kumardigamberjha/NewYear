@@ -10,7 +10,7 @@
     <div class="container">
         <div class="conatiner" style="display: flex; justify-content: space-around;">
             <h2 class="text-center mt-3">All Invitations</h2>
-            <a href="{% url 'del_all_qr_code' %}" style="margin: 25px; text-decoration: none; color: red; border: 1px solid red;" onclick="return confirm('Are you sure you want to delete all records?')">Del All Record</a>
+            {% comment %}<!-- <a href="{% url 'del_all_qr_code' %}" style="margin: 25px; text-decoration: none; color: red; border: 1px solid red;" onclick="return confirm('Are you sure you want to delete all records?')">Del All Record</a> -->{% endcomment %}
         </div>
         
 
@@ -42,6 +42,7 @@
                 <td>Not Active</td>
                 {% endif %}
                 <td><a href="https://redcarpet.codingindia.co.in/HandleQRCode/{{i.phone}}/">Deactivate</a></td>
+                <td><a href="{% url 'remove_qr_code' i.phone %}" onclick="return confirm('Name: {{i.name}} \nPhone: {{i.phone}} \nAdult: {{i.adult}} \nChild: {{i.child}} \nKid: {{i.kid}} \nAre You Sure to Delete this Record?')">Delete</a></td>
               </tr>
                 {% endfor %}
             </tbody>
